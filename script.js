@@ -1,13 +1,23 @@
 const addBookBtn = document.querySelector(".addBookBtn");
 const display = document.querySelector(".display");
-// const displays = document.querySelector(".display1");
+const submitBtn = document.querySelector(".submitBtn");
 
+const nameInput = document.querySelector(".nameInput");
+const authorInput = document.querySelector(".authorInput");
+const yearInput = document.querySelector(".yearInput");
+const ratingInput = document.querySelector(".ratingInput");
+
+// let names;
+// let authors;
+// let year;
+// let rating;
 
 let myLibrary = [
-    { name: "How to be Noob ", author: "Yedu", year: 2017, rating: 1 },
-    { name: "How to be Pro ", author: "Kannan", year: 2009, rating: 7 },
-    { name: "How to be God ", author: "Messi", year: 2022, rating: 10 },
+    // { name: "How to be Noob ", author: "Yedu", year: 2017, rating: 1 },
+    // { name: "How to be Pro ", author: "Kannan", year: 2009, rating: 7 },
+    // { name: "How to be God ", author: "Messi", year: 2022, rating: 10 },
 ];
+
 
 
 function Book(name, author, year, rating) {
@@ -23,11 +33,18 @@ Book.prototype.addBook = function () {
 
 const bookOne = new Book("Hard Work and Dedication", "CR7", 1990, 10);
 const bookTwo = new Book("Dive and ShowBot", "NY9", 2000, 8);
+const bookThree = new Book("How to be a GOAT", "Messi", 2012, 10);
 
 // myLibrary.splice(-1, 0, bookOne);
-myLibrary.push(bookOne);
+// myLibrary.push(bookTwo);
+// myLibrary.push(bookThree);
 
-function addBookToLibrary() {
+
+
+
+function displayingBookToLibrary() {
+    // if (!ifAdded) {
+    // ifAdded = true;
     for (let library of myLibrary) {
         const mainDiv = document.createElement('div');
 
@@ -36,9 +53,10 @@ function addBookToLibrary() {
         const yearDiv = document.createElement('div');
         const ratingDiv = document.createElement('div');
 
-        nameDiv.textContent = ` Name: ${library.name}`;
-        authorDiv.textContent = `Author: ${library.author}`;
-        yearDiv.textContent = `Year: ${library.year}`;
+
+        nameDiv.textContent = ` Name : ${library.name}`;
+        authorDiv.textContent = `Author : ${library.author}`;
+        yearDiv.textContent = `Year : ${library.year}`;
         ratingDiv.textContent = ` Rating : ${library.rating}`;
 
         mainDiv.append(nameDiv);
@@ -48,12 +66,45 @@ function addBookToLibrary() {
 
         mainDiv.classList.add("eachBookStyle");
         display.append(mainDiv);
+        // }
     }
+
+    // submitBtn.removeEventListener("click", submitPress);
+
 }
 
-function eachBookDetails() { }
+let ifAdded = false;
 
-addBookToLibrary()
+submitBtn.addEventListener("click", submitPress)
+
+function submitPress() {
+
+
+
+    const news = new Book(`${nameInput.value}`, `${authorInput.value}`, `${yearInput.value}`, `${ratingInput.value}`);
+    if (nameInput.value === "" || authorInput.value === "" || yearInput.value === "" || ratingInput.value === "") {
+        // alert("Please Enter Values")
+    }
+    else {
+        event.preventDefault();
+        // myLibrary.push(news);
+        console.log(news);
+
+
+        // myLibrary.push(bookOne);
+        myLibrary.push(news);
+        // }
+        displayingBookToLibrary();
+
+        myLibrary.pop(bookOne);
+        myLibrary.pop(news);
+
+        nameInput.value = "";
+        authorInput.value = "";
+        yearInput.value = "";
+        ratingInput.value = "";
+    }
+}
 
 
 

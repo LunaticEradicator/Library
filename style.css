@@ -41,21 +41,23 @@ label {
     /* padding-right: 120px; */
 }
 
+.sectionTwo {
+    /* display: grid;
+    grid-template-rows: 1fr 1fr; */
+}
+
 .display {
+    /* grid-column: 1/3; */
     display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    margin-top: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-auto-flow: row;
 }
 
 .eachBookStyle {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    border: 5px solid rgb(189, 18, 18);
-    /* height: 50px; */
+    border: 3px solid rgb(189, 18, 18);
+    max-height: 150px;
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     font-size: 1.5rem;
     border-radius: 10px;
 }
@@ -70,5 +72,35 @@ dialog {
 input {
     border-radius: 10px;
     outline: none;
-    border: 1px solid rebeccapurple;
+    border: 2px solid rebeccapurple;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.submitBtn {
+    /* background-color: black; */
+    font-size: 2.5rem;
+    border-radius: 10px;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.styleHead {
+    text-align: center;
+}
+
+.input {
+    /* background-color: rebeccapurple; */
 }

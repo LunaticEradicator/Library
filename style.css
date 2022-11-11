@@ -49,17 +49,40 @@ label {
 .display {
     /* grid-column: 1/3; */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-auto-flow: row;
 }
 
 .eachBookStyle {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap; */
     border: 3px solid rgb(189, 18, 18);
-    max-height: 150px;
+    /* max-height: 250px; */
     margin: 10px;
     padding: 15px;
     font-size: 1.5rem;
     border-radius: 10px;
+}
+
+.eachBookStyle>div,
+.eachBookStyle>span {
+    display: flex;
+    justify-content: center;
+}
+
+.eachBookStyle>div {
+    font-weight: bold;
+}
+
+/* .eachBookStyle>span {
+    font-style: italic;
+} */
+
+.nameSpan {
+    /* display: flex;
+    justify-content: center; */
 }
 
 dialog {
@@ -101,6 +124,36 @@ h2 {
     text-align: center;
 }
 
-.input {
+.readBtnDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.readBtnDiv>button {
+    font-size: 1rem;
+    background-color: rgb(77, 189, 62);
+    color: black;
+    flex-grow: 1;
+    margin: 0px;
+    font-size: 1rem;
+    /* max-width: 50%; */
+    /* transform: scale(1.2) !important; */
+}
+
+.deleteDiv {
     /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: end !important;
+    /* align-items: center !important; */
+}
+
+.deleteBtn {
+    font-size: 1rem;
+    background-color: rgb(255, 0, 0);
+    padding: 0px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    color: rgb(0, 0, 0);
+    font-size: 3rem;
 }

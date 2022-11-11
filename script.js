@@ -46,32 +46,86 @@ function displayingBookToLibrary() {
     // if (!ifAdded) {
     // ifAdded = true;
     for (let library of myLibrary) {
-        const mainDiv = document.createElement('div');
-
-        const nameDiv = document.createElement('div');
-        const authorDiv = document.createElement('div');
-        const yearDiv = document.createElement('div');
-        const ratingDiv = document.createElement('div');
-
-
-        nameDiv.textContent = ` Name : ${library.name}`;
-        authorDiv.textContent = `Author : ${library.author}`;
-        yearDiv.textContent = `Year : ${library.year}`;
-        ratingDiv.textContent = ` Rating : ${library.rating}`;
-
-        mainDiv.append(nameDiv);
-        mainDiv.append(authorDiv);
-        mainDiv.append(yearDiv);
-        mainDiv.append(ratingDiv);
-
-        mainDiv.classList.add("eachBookStyle");
-        display.append(mainDiv);
+        displayStyle(library);
         // }
     }
 
-    // submitBtn.removeEventListener("click", submitPress);
-
 }
+
+function displayStyle(library) {
+    const eachBookStyle = document.createElement('div');
+
+    const deleteDiv = document.createElement('div');
+    deleteDiv.classList.add("deleteDiv")
+    eachBookStyle.append(deleteDiv);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "x";
+    deleteBtn.classList.add("deleteBtn")
+    deleteDiv.append(deleteBtn);
+
+
+
+    const nameDiv = document.createElement('div');
+    const authorDiv = document.createElement('div');
+    const yearDiv = document.createElement('div');
+    const ratingDiv = document.createElement('div');
+    const readBtnDiv = document.createElement('div');
+    const readBtn = document.createElement('button');
+
+    const nameSpan = document.createElement('span');
+    const authorSpan = document.createElement('span');
+    const yearSpan = document.createElement('span');
+    const ratingSpan = document.createElement('span');
+
+
+    nameDiv.textContent = "Book";
+    nameSpan.textContent = ` ${library.name}`;
+
+    authorDiv.textContent = "Author";
+    authorSpan.textContent = ` ${library.author}`;
+
+    yearDiv.textContent = "Year";
+    yearSpan.textContent = ` ${library.year}`;
+
+    ratingDiv.textContent = "Rating";
+    ratingSpan.textContent = ` ${library.rating}`;
+
+    readBtn.textContent = ` Delete `;
+
+    nameDiv.classList.add("nameDiv");
+    nameSpan.classList.add("nameSpan");
+
+    authorDiv.classList.add("authorDiv");
+    authorSpan.classList.add("authorSpan");
+
+    yearDiv.classList.add("yearDiv");
+    yearSpan.classList.add("yearSpan");
+
+    ratingDiv.classList.add("ratingDiv");
+    ratingSpan.classList.add("ratingSpan");
+
+    readBtnDiv.classList.add("readBtnDiv");
+    eachBookStyle.classList.add("eachBookStyle");
+
+
+    eachBookStyle.append(nameDiv);
+    eachBookStyle.append(nameSpan);
+
+    eachBookStyle.append(authorDiv);
+    eachBookStyle.append(authorSpan);
+
+    eachBookStyle.append(yearDiv);
+    eachBookStyle.append(yearSpan);
+
+    eachBookStyle.append(ratingDiv);
+    eachBookStyle.append(ratingSpan);
+
+    eachBookStyle.append(readBtnDiv);
+    readBtnDiv.append(readBtn);
+    display.append(eachBookStyle);
+}
+
 
 let ifAdded = false;
 
@@ -82,28 +136,27 @@ function submitPress() {
 
 
     const news = new Book(`${nameInput.value}`, `${authorInput.value}`, `${yearInput.value}`, `${ratingInput.value}`);
-    if (nameInput.value === "" || authorInput.value === "" || yearInput.value === "" || ratingInput.value === "") {
-        // alert("Please Enter Values")
-    }
-    else {
-        event.preventDefault();
-        // myLibrary.push(news);
-        console.log(news);
+    console.log(nameInput.value.length)
+    // if (nameInput.value === "" || authorInput.value === "" || yearInput.value === "" || ratingInput.value === "") {
+    // }
+    // else {
+    event.preventDefault();
+    // myLibrary.push(news);
+    console.log(news);
 
 
-        // myLibrary.push(bookOne);
-        myLibrary.push(news);
-        // }
-        displayingBookToLibrary();
+    myLibrary.push(news);
+    // }
+    displayingBookToLibrary();
 
-        myLibrary.pop(bookOne);
-        myLibrary.pop(news);
+    myLibrary.pop(bookOne);
+    myLibrary.pop(news);
 
-        nameInput.value = "";
-        authorInput.value = "";
-        yearInput.value = "";
-        ratingInput.value = "";
-    }
+    nameInput.value = "";
+    authorInput.value = "";
+    yearInput.value = "";
+    ratingInput.value = "";
+    // }
 }
 
 

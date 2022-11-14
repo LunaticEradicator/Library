@@ -13,22 +13,21 @@
 
 
 
-<form action="">
-    <div class="sectionOne">
-        <div class="addBookBtn">
-            <button>Add Book</button>
-        </div>
+<div class="sectionOne">
+    <div class="addBook">
+        <button class="addBookBtn">Add Book</button>
     </div>
+</div>
 
-    <div class="sectionTwo">
-        <div class="display"></div>
-    </div>
+<div class="sectionTwo">
+    <div class="display"></div>
+</div>
 
-    <dialog open>
+<div class="sectionThree">
+    <dialog class="modal">
         <h2>Add a New Book</h2>
 
-        <div class="sectionThree">
-
+        <form method="dialog">
             <div>
                 <!-- <label for="name">Book Name : </label> -->
                 <input type="text" name="name" class="nameInput" placeholder="Book" autocomplete="off" required>
@@ -49,17 +48,20 @@
                 <input type="text" name="rating" class="ratingInput" placeholder="Rating" autocomplete="off" required>
             </div>
 
+            <div class="readBtnDiv">
+                <!-- <label for="readBtn">Read</label> -->
+                <!-- <input type="button" name="readBtn" class="readBtn" value="Read"> -->
+                <button class="readBtn readStatusInput">Read</button>
+            </div>
+
             <div class="submitBtn">
                 <!-- <label for="rating">Rating : </label> -->
                 <input type="submit" name="submit" class="submitBtn">
             </div>
+        </form>
 
-        </div>
     </dialog>
-</form>
-
-
-
+</div>
 
 <body>
 

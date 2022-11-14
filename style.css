@@ -1,17 +1,26 @@
 body {
     background-color: rgb(236, 228, 217);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding-top: 0px;
+    background-color: rgb(12, 11, 14);
+    color: white;
 }
 
 h1 {
     text-align: center;
+    font-size: 4rem;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
-.addBookBtn {
+.addBook {
     display: flex;
     justify-content: center;
 
 }
+
+.addBookBtn {}
 
 button {
     background-color: black;
@@ -23,18 +32,15 @@ button {
     padding: 10px;
 }
 
+/* 
 button:hover {
-    background-color: aliceblue;
-    color: black;
-    border: 1px solid rgb(0, 0, 0);
-    transition: 0.3s;
-    transform: scale(1.2);
-}
+ 
+} */
 
-button:active {
+/* button:active {
     transform: scale(1);
     transition: 0.6s;
-}
+} */
 
 label {
     font-size: 1.5rem;
@@ -49,19 +55,16 @@ label {
 .display {
     /* grid-column: 1/3; */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-flow: row;
 }
 
 .eachBookStyle {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap; */
-    border: 3px solid rgb(189, 18, 18);
+    border: 2px solid rgb(255, 255, 255);
     /* max-height: 250px; */
     margin: 10px;
-    padding: 15px;
+    /* padding: 15px; */
+    padding-top: 0;
     font-size: 1.5rem;
     border-radius: 10px;
 }
@@ -86,10 +89,15 @@ label {
 }
 
 dialog {
-    /* background-color: rebeccapurple; */
     border-radius: 10px;
     border: 3px solid black !important;
+    transition: 1s;
+}
 
+.modal::backdrop {
+    background-color: rgb(0, 0, 0);
+    opacity: 0.4;
+    transition: 1s;
 }
 
 input {
@@ -97,8 +105,9 @@ input {
     outline: none;
     border: 2px solid rebeccapurple;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     margin: 5px;
+    padding: 10px;
 }
 
 h2 {
@@ -130,30 +139,102 @@ h2 {
     margin-top: 10px;
 }
 
-.readBtnDiv>button {
-    font-size: 1rem;
+.readBtn {
     background-color: rgb(77, 189, 62);
+    flex: 1;
+    margin: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    border: 2px solid rgb(247, 247, 247);
     color: black;
-    flex-grow: 1;
-    margin: 0px;
-    font-size: 1rem;
-    /* max-width: 50%; */
-    /* transform: scale(1.2) !important; */
+    font-weight: bold;
+}
+
+.readStatus {
+    background-color: red;
+    box-shadow: 0 2px 5px rgba(3, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+.defaultColor {
+    background-color: rgb(77, 189, 62);
 }
 
 .deleteDiv {
-    /* background-color: rebeccapurple; */
     display: flex;
-    justify-content: end !important;
-    /* align-items: center !important; */
+    flex-direction: row-reverse;
+    justify-content: space-between !important;
+    margin: 0;
 }
 
-.deleteBtn {
-    font-size: 1rem;
-    background-color: rgb(255, 0, 0);
+.deleteBtn,
+.readIcon {
+    all: unset;
     padding: 0px !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
+    font-size: 2rem;
+    transition: 0.5s;
+    border-radius: 5px;
     color: rgb(0, 0, 0);
-    font-size: 3rem;
+    text-align: center;
+    margin: 2px;
+    transform: scale(.80);
+    background-color: aliceblue;
 }
+
+
+.deleteBtn:hover {
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+    transform: scale(1.05);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.747);
+}
+
+.addBookBtn {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    /* transition: 0.3s; */
+    /* transform: scale(1.05); */
+}
+
+.addBookBtn:hover {
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    border: 1px solid rgb(255, 255, 255);
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.readBtn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.readIcon {
+    background: center/contain url(./img/checkbox.png) no-repeat;
+    background-color: rgb(77, 189, 62);
+    width: 10%;
+    border-radius: 10px;
+    color: white;
+}
+
+.readIconStatus {
+    background: center/contain url(./img/eye.png) no-repeat;
+    background-color: red;
+    height: 100%;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+
+}
+
+/* .readIcon:hover {
+    cursor: pointer;
+    background: center/contain url(./img/eye.png) no-repeat;
+    transform: scale(1.05);
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+} */

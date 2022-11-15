@@ -8,7 +8,7 @@ const eachBookStyle = document.querySelector('.eachBookStyle');
 
 const nameInput = document.querySelector(".nameInput");
 const authorInput = document.querySelector(".authorInput");
-const yearInput = document.querySelector(".yearInput");
+const pageInput = document.querySelector(".pageInput");
 const ratingInput = document.querySelector(".ratingInput");
 const readStatusInput = document.querySelector(".readStatusInput");
 
@@ -22,16 +22,16 @@ let myLibrary = [
 
 
 
-function Book(name, author, year, rating, readStatus) {
+function Book(name, author, page, rating, readStatus) {
     this.name = name;
     this.author = author;
-    this.year = year;
+    this.page = page;
     this.rating = rating;
     this.readStatus = readStatus;
 }
 
 Book.prototype.addBook = function () {
-    return `Name : ${this.name} Author : ${this.author} Year : ${this.year} Rating : ${this.rating} ReadStats : ${this.readStatus}`
+    return `Name : ${this.name} Author : ${this.author} Year : ${this.page} Rating : ${this.rating} ReadStats : ${this.readStatus}`
 }
 
 const bookOne = new Book("Hard Work and Dedication", "CR7", 1990, 10);
@@ -53,15 +53,21 @@ function displayingBookToLibrary() {
 
 function displayStyle(library) {
     const eachBookStyle = document.createElement('div');
+    const hideDiv = document.createElement('div');
+    hideDiv.classList.add("hideDiv");
+
+
+
+
 
     const nameDiv = document.createElement('div');
     const authorDiv = document.createElement('div');
-    const yearDiv = document.createElement('div');
+    const pageDiv = document.createElement('div');
     const ratingDiv = document.createElement('div');
 
     const nameSpan = document.createElement('span');
     const authorSpan = document.createElement('span');
-    const yearSpan = document.createElement('span');
+    const pageSpan = document.createElement('span');
     const ratingSpan = document.createElement('span');
 
     const readBtn = document.createElement('button');
@@ -87,8 +93,8 @@ function displayStyle(library) {
     authorDiv.textContent = "Author";
     authorSpan.textContent = ` ${library.author}`;
 
-    yearDiv.textContent = "Year";
-    yearSpan.textContent = ` ${library.year}`;
+    pageDiv.textContent = "Pages";
+    pageSpan.textContent = ` ${library.page}`;
 
     ratingDiv.textContent = "Rating";
     ratingSpan.textContent = ` ${library.rating}`;
@@ -103,8 +109,8 @@ function displayStyle(library) {
     authorDiv.classList.add("authorDiv");
     authorSpan.classList.add("authorSpan");
 
-    yearDiv.classList.add("yearDiv");
-    yearSpan.classList.add("yearSpan");
+    pageDiv.classList.add("yearDiv");
+    pageSpan.classList.add("yearSpan");
 
     ratingDiv.classList.add("ratingDiv");
     ratingSpan.classList.add("ratingSpan");
@@ -114,28 +120,39 @@ function displayStyle(library) {
 
     if (readBtn.textContent === "Read") {
         readBtn.classList.remove("readStatus");
+        eachBookStyle.style.border = "3px solid rgb(77, 189, 62)";
     }
     else {
         readBtn.classList.add("readStatus");
+        eachBookStyle.style.border = "3px solid red";
     }
-
 
 
     eachBookStyle.append(nameDiv);
     eachBookStyle.append(nameSpan);
 
-    eachBookStyle.append(authorDiv);
-    eachBookStyle.append(authorSpan);
+    hideDiv.append(authorDiv);
+    hideDiv.append(authorSpan);
 
-    eachBookStyle.append(yearDiv);
-    eachBookStyle.append(yearSpan);
+    hideDiv.append(pageDiv);
+    hideDiv.append(pageSpan);
 
-    eachBookStyle.append(ratingDiv);
-    eachBookStyle.append(ratingSpan);
+    hideDiv.append(ratingDiv);
+    hideDiv.append(ratingSpan);
 
-    eachBookStyle.append(readBtnDiv);
+    hideDiv.append(readBtnDiv);
     readBtnDiv.append(readBtn);
 
+    const hideDivImage = document.createElement('div');
+    const hideDivImageBackground = document.createElement('div');
+    // hideDivImageBackground.textContent = "nice";
+    hideDivImage.classList.add("hideDivImage");
+    hideDivImage.classList.add("hideDivStatus");
+    hideDivImageBackground.classList.add("hideDivImageBackground");
+    hideDivImage.append(hideDivImageBackground);
+
+    eachBookStyle.append(hideDiv);
+    eachBookStyle.append(hideDivImage);
     display.append(eachBookStyle);
 
     readBtn.addEventListener("click", readBtnStatus)
@@ -144,10 +161,14 @@ function displayStyle(library) {
         if (readBtn.textContent === "Read") {
             readBtn.textContent = "Not Read";
             readBtn.classList.toggle("readStatus");
+            eachBookStyle.style.border = "3px solid red";
+            // eachBookStyle.style.boxShadow = "1px 1px 30px 2px rgb(224, 0, 0)";
         }
         else {
             readBtn.textContent = "Read";
             readBtn.classList.toggle("readStatus");
+            eachBookStyle.style.border = "3px solid rgb(77, 189, 62)";
+            // eachBookStyle.style.boxShadow = " 1px 1px 30px 2px rgb(0, 224, 49)";
         }
         event.preventDefault();
     }
@@ -156,44 +177,53 @@ function displayStyle(library) {
 
     readIcon.addEventListener("click", e => {
         readIcon.classList.toggle("readIconStatus");
-        // eachBookStyle.style.height = "27%";
-        // eachBookStyle.style.display = "none";
-        // height: 27 %;
+        hideDiv.classList.toggle("hideDivStatus");
+        eachBookStyle.classList.toggle("eachBookStyleStatus");
+        hideDivImage.classList.toggle("hideDivStatus");
+        // eachBookStyle.style.height = "100%";
+    })
 
+    hideDivImageBackground.addEventListener("click", e => {
+        readIcon.classList.toggle("shakeAnimation");
     })
 
 }
 
+
 submitBtn.addEventListener("click", submitPress);
 readBtn.addEventListener("click", readBtnStatus);
 addBookBtn.addEventListener("click", ShowModal)
+
+
 
 function ShowModal() {
     modal.showModal();
 }
 
 function submitPress() {
-    const news = new Book(`${nameInput.value}`, `${authorInput.value}`, `${yearInput.value}`, `${ratingInput.value}`, `${readStatusInput.textContent}`);
+    const news = new Book(`${nameInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${ratingInput.value}`, `${readStatusInput.textContent}`);
     console.log(nameInput.value.length)
-    if (nameInput.value === "" || authorInput.value === "" || yearInput.value === "" || ratingInput.value === "") {
-        //html required field will popup
-    }
-    else {
-        event.preventDefault();
-        console.log(news);
-        myLibrary.push(news);
-        modal.close();
-    }
+    // if (nameInput.value === "" || authorInput.value === "" || yearInput.value === "" || ratingInput.value === "") {
+    //html required field will popup
+    // }
+    // else {
+    event.preventDefault();
+    console.log(news);
+    myLibrary.push(news);
+    modal.close();
+    // }
     displayingBookToLibrary();
 
     myLibrary.pop(news);
     clearValueAfterSubmit()
+    // display.style.border = "2px solid rgb(133, 130, 130)";
+
 }
 
 function clearValueAfterSubmit() {
     nameInput.value = "";
     authorInput.value = "";
-    yearInput.value = "";
+    pageInput.value = "";
     ratingInput.value = "";
     readStatusInput.textContent = "Read";
     readBtn.classList.add("defaultColor");

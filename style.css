@@ -79,8 +79,8 @@ label {
     /* box-shadow: 1px 1px 15px 1px rgba(166, 211, 153, 0.411); */
 }
 
-.hideDiv>div,
-.hideDiv>span,
+.hideSection>div,
+.hideSection>span,
 .nameSpan,
 .nameDiv {
     display: flex;
@@ -95,9 +95,13 @@ label {
 } */
 
 .eachBookStyle>span,
-.hideDiv>span {
+.hideSection>span {
     font-weight: bold;
     padding: 5px;
+    display: block;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 /* to remove arrow from [Input[type="number"]] */
@@ -183,7 +187,8 @@ h2 {
     text-align: center;
 }
 
-.readBtnDiv {
+.readBtnDiv,
+.readBtnDivDisplay {
     margin: 0px;
     margin-top: 5px;
     display: flex;
@@ -191,7 +196,8 @@ h2 {
     align-items: stretch !important;
 }
 
-.readBtn {
+.readBtn,
+.readBtnDisplay {
     background-color: rgb(77, 189, 62);
     flex-grow: 1;
     margin: 15px;
@@ -203,17 +209,17 @@ h2 {
     font-weight: bold;
 }
 
-.readStatus {
+.notReadStatus {
     background-color: red;
     transition: 0.5s;
 }
 
 .defaultColor {
     background-color: rgb(77, 189, 62);
-    border: 3px solid rgb(77, 189, 62);
+    border: 3px solid rgb(255, 255, 255);
 }
 
-.deleteDiv {
+.iconSection {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between !important;
@@ -221,7 +227,7 @@ h2 {
 }
 
 .deleteBtn,
-.readIcon {
+.minimizeIcon {
     all: unset;
     padding: 0px !important;
     padding-left: 10px !important;
@@ -236,12 +242,12 @@ h2 {
     background-color: aliceblue;
 }
 
-form>.readBtnDiv>.readBtn {
+form>.readBtnDivDisplay>.readBtnDisplay {
     /* background-color: rebeccapurple !important; */
     transform: scale(1.05);
 }
 
-form>.readBtnDiv>.readBtn:hover {
+form>.readBtnDivDisplay>.readBtnDisplay:hover {
     transform: scaleY(1.1)
 }
 
@@ -270,12 +276,13 @@ form>.readBtnDiv>.readBtn:hover {
     transform: scale(1.05);
 }
 
-.readBtn:hover {
+.readBtn,
+.readBtnDisplay:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.readIcon {
+.minimizeIcon {
     background: center/contain url(./img/checkbox.png) no-repeat;
     background-color: rgb(77, 189, 62);
     width: 10%;
@@ -284,36 +291,35 @@ form>.readBtnDiv>.readBtn:hover {
     cursor: pointer;
 }
 
-.readIcon:hover {
+.minimizeIcon:hover {
     transform: scale(1.05);
     border-radius: 50%;
 }
 
-.readIconStatus {
+.minimizeIconOn {
     background: center/contain url(./img/eye.png) no-repeat;
     background-color: red;
     transition: 0.5s;
     /* height: 100%;
     border-radius: 10px;
     color: rgb(0, 0, 0); */
-
 }
 
-.hideDivStatus {
+.showMoreDivHide {
     display: none;
     /* transition: 1s; */
 }
 
-.eachBookStyleStatus {
-    height: 155px;
+.eachBookStyleHeight {
+    max-height: 155px;
     /* transition: 10s; */
 }
 
-.hideDivImage {
-    /* background-color: rgba(223, 219, 219, 0.993); */
-}
+/* .showMoreDiv {
+    background-color: rgba(223, 219, 219, 0.993);
+} */
 
-.hideDivImageBackground {
+.showMoreIcon {
     background: center/contain url(./img/down.png) no-repeat;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -321,7 +327,7 @@ form>.readBtnDiv>.readBtn:hover {
     transition: 1s;
 }
 
-.hideDivImageBackground:hover {
+.showMoreIcon:hover {
     transform: scale(1.05);
 }
 

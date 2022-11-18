@@ -9,61 +9,55 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
-<h1>Library</h1>
-
-
-
-<div class="sectionOne">
-    <div class="addBook">
-        <button class="addBookBtn">Add Book</button>
-    </div>
-</div>
-
-<div class="sectionTwo">
-    <div class="display"></div>
-</div>
-
-<div class="sectionThree">
-    <dialog class="modal">
-        <h2>Add a New Book</h2>
-
-        <form method="dialog">
-            <div>
-                <!-- <label for="name">Book Name : </label> -->
-                <input type="text" name="name" class="nameInput" placeholder="Book" autocomplete="off" required>
-            </div>
-
-            <div>
-                <!-- <label for="name">Author : </label> -->
-                <input type="text" name="author" class="authorInput" placeholder="Author" autocomplete="off" required>
-            </div>
-
-            <div>
-                <!-- <label for="year">Year : </label> -->
-                <input type="number" name="page" class="pageInput" placeholder="Pages" autocomplete="off" required>
-            </div>
-
-            <div>
-                <!-- <label for="rating">Rating : </label> -->
-                <input type="number" name="rating" class="ratingInput" placeholder="Rating" autocomplete="off" required>
-            </div>
-
-            <div class="readBtnDiv">
-                <!-- <label for="readBtn">Read</label> -->
-                <!-- <input type="button" name="readBtn" class="readBtn" value="Read"> -->
-                <button class="readBtn readStatusInput">Read</button>
-            </div>
-
-            <div class="submitBtnDiv">
-                <!-- <label for="rating">Rating : </label> -->
-                <input type="submit" name="submit" class="submitBtn">
-            </div>
-        </form>
-
-    </dialog>
-</div>
 
 <body>
+
+    <h1>Library</h1>
+    <div class="sectionOne">
+        <div class="addBook">
+            <button class="addBookBtn">Add Book</button>
+        </div>
+    </div>
+
+    <div class="sectionTwo">
+        <div class="display"></div>
+    </div>
+
+    <div class="sectionThree">
+        <dialog class="modal">
+            <h2>Add a New Book</h2>
+
+            <form method="dialog">
+                <div>
+                    <input type="text" name="name" class="nameInput" placeholder="Book" autocomplete="off" required>
+                </div>
+
+                <div>
+                    <input type="text" name="author" class="authorInput" placeholder="Author" autocomplete="off"
+                        required>
+                </div>
+
+                <div>
+                    <input type="number" name="page" class="pageInput" placeholder="Pages" autocomplete="off" required>
+                </div>
+
+                <div>
+                    <input type="number" name="rating" class="ratingInput" placeholder="Rating" autocomplete="off"
+                        max="10" required>
+                    <!-- pattern="^(\d){2}$" -->
+                </div>
+
+                <div class="readBtnDiv">
+                    <button class="readBtn readStatusInput">Read</button>
+                </div>
+
+                <div class="submitBtnDiv">
+                    <input type="submit" name="submit" class="submitBtn">
+                </div>
+            </form>
+
+        </dialog>
+    </div>
 
 </body>
 

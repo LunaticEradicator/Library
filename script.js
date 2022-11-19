@@ -26,9 +26,16 @@ Book.prototype.addBook = function () {
 }
 
 // Each Time Submit Button is Pressed a new object will be created using object constructor [submitBtn function is invoked]
-let myLibrary = [
-    // { name: "How to be Noob ", author: "Yedu", year: 2017, rating: 1 }
-];
+
+
+const bookOne = new Book("The Witcher", "Andrzej Sapkowski", 235, 10, "Read");
+let myLibrary = [];
+myLibrary.push(bookOne);
+displayBookToLibrary()
+myLibrary.pop(bookOne);
+
+
+
 
 //Loop through every item in the array myLibrary
 function displayBookToLibrary() {
@@ -116,11 +123,11 @@ function addBook(library) {
 
     //Toggle readBtnOnOff on EachBookStyle
     if (readBtnDisplay.textContent === "Read") {
-        readBtnDisplay.classList.remove("notReadStatus");
+        readBtnDisplay.classList.remove("notReadColor");
         eachBookStyle.style.border = "3px solid rgb(77, 189, 62)";
     }
     else {
-        readBtnDisplay.classList.add("notReadStatus");
+        readBtnDisplay.classList.add("notReadColor");
         eachBookStyle.style.border = "3px solid red";
     }
 
@@ -160,12 +167,12 @@ function addBook(library) {
         // console.log("CLICKED")
         if (readBtnDisplay.textContent === "Read") {
             readBtnDisplay.textContent = "Not Read";
-            readBtnDisplay.classList.toggle("notReadStatus");
+            readBtnDisplay.classList.toggle("notReadColor");
             eachBookStyle.style.border = "3px solid red";
         }
         else {
             readBtnDisplay.textContent = "Read";
-            readBtnDisplay.classList.toggle("notReadStatus");
+            readBtnDisplay.classList.toggle("notReadColor");
             eachBookStyle.style.border = "3px solid rgb(77, 189, 62)";
         }
         event.preventDefault();
@@ -220,6 +227,7 @@ function clearValueAfterSubmit() {
     pageInput.value = "";
     ratingInput.value = "";
     readStatusInput.textContent = "Read";
+    readBtn.classList.remove("notReadColor");
     readBtn.classList.add("defaultColor");
 }
 
@@ -228,12 +236,12 @@ function readBtnStatus() {
 
     if (readBtn.textContent === "Read") {
         readBtn.textContent = "Not Read";
-        readBtn.classList.add("notReadStatus");
+        readBtn.classList.add("notReadColor");
         console.log("Red");
     }
     else {
         readBtn.textContent = "Read";
-        readBtn.classList.remove("notReadStatus");
+        readBtn.classList.remove("notReadColor");
         console.log("Green");
     }
     event.preventDefault();

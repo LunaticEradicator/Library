@@ -2,6 +2,14 @@
 
 :root {
     --darkColor: rgb(12, 11, 14);
+    --greenColor: rgb(77, 189, 62);
+}
+
+/* to remove arrow from [Input[type="number"]] */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 body {
@@ -9,26 +17,20 @@ body {
     font-family: 'Jost', sans-serif;
     font-family: 'Noto Serif JP', serif;
     font-family: 'Sono', sans-serif;
-    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
-    /* margin: 0; */
     padding-top: 0px;
     background-color: var(--darkColor);
     color: white;
+    /* margin: 0; */
+    /* padding: 0; */
 }
 
 h1 {
     text-align: center;
-    font-size: 4rem;
+    font-size: 5rem;
     margin-top: 0px;
     margin-bottom: 10px;
+    /* color: rgb(29, 100, 231); */
 }
-
-.addBook {
-    display: flex;
-    justify-content: center;
-}
-
-
 
 button {
     background-color: var(--darkColor);
@@ -40,80 +42,8 @@ button {
     padding: 10px;
 }
 
-
-
 label {
     font-size: 1.5rem;
-    /* padding-right: 120px; */
-}
-
-.sectionTwo {
-    /* display: grid;
-    grid-template-rows: 1fr 1fr; */
-}
-
-.display {
-    /* grid-column: 1/3; */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-flow: row;
-    /* border: 2px solid rgb(133, 130, 130); */
-    border-radius: 50px;
-    margin: 10px;
-    padding: 10px;
-    padding-left: 30px;
-    transition: 1s;
-}
-
-.eachBookStyle {
-    margin: 10px;
-    padding-top: 0;
-    border-radius: 10px;
-    transition: 1s;
-    background-color: gainsboro;
-    color: var(--darkColor);
-    /* border: 3px solid rgb(247, 50, 50); */
-    font-size: 1.1rem;
-    /* height: 100%; */
-    /* box-shadow: rgba(52, 224, 0, 0.534) 0px 7px 29px 0px; */
-    /* box-shadow: 1px 1px 15px 1px rgba(166, 211, 153, 0.411); */
-}
-
-.hideSection>div,
-.hideSection>span,
-.nameSpan,
-.nameDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* .eachBookStyle>div,
-.eachBookStyle>span {
-    display: flex;
-    justify-content: center;
-} */
-
-.eachBookStyle>span,
-.hideSection>span {
-    font-weight: bold;
-    padding: 5px;
-    display: block;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    text-align: center;
-}
-
-/* to remove arrow from [Input[type="number"]] */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.nameSpan {
-    /* display: flex;
-    justify-content: center; */
 }
 
 dialog {
@@ -122,12 +52,6 @@ dialog {
     transition: 1s;
     background-color: var(--darkColor);
     color: aliceblue;
-}
-
-.modal::backdrop {
-    background-color: rgb(160, 153, 153);
-    opacity: 0.5;
-    transition: 1s;
 }
 
 input {
@@ -142,28 +66,6 @@ input {
     color: var(--darkColor);
 }
 
-.submitBtnDiv {
-    display: flex;
-    justify-content: center;
-}
-
-.submitBtn {
-    display: flex;
-    width: 55%;
-    color: var(--darkColor);
-    background-color: gainsboro;
-    font-size: 2rem;
-    border: 2px solid white;
-}
-
-.submitBtn:hover {
-    background-color: aliceblue;
-    color: var(--darkColor);
-    width: 100%;
-    /* font-size: 3rem; */
-}
-
-
 h2 {
     display: flex;
     justify-content: center;
@@ -172,8 +74,107 @@ h2 {
     margin-bottom: 20px;
 }
 
+input:focus {
+    background-color: aliceblue;
+    outline: 2px solid rgb(29, 100, 231);
+    /* box-shadow: 1px 5px 8px rgb(29, 100, 231); */
+}
+
+input:not(:focus):not(:placeholder-shown):invalid {
+    outline: 2px solid red;
+}
+
+input:not(:focus):not(:placeholder-shown):valid {
+    outline: 2px solid rgba(30, 255, 0, 0.644);
+}
+
+.modal::backdrop {
+    background-color: rgb(160, 153, 153);
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.addBookDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-flow: row;
+    border-radius: 50px;
+    margin: 10px;
+    padding: 10px;
+    padding-left: 30px;
+    transition: 1s;
+}
+
+.eachBookStyle {
+    margin: 10px;
+    padding-top: 0;
+    border-radius: 10px;
+    transition: 1s;
+    background-color: gainsboro;
+    color: var(--darkColor);
+    font-size: 1.1rem;
+}
+
+.addBookBtn {
+    background-color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 3px solid rgb(29, 100, 231);
+    outline: none !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+    font-weight: bold;
+}
+
+.eachBookStyleHeight {
+    max-height: 155px;
+}
+
+.showMoreDivHide {
+    display: none;
+    /* transition: 1s; */
+}
+
+.showMoreIcon {
+    background: center/contain url(./img/down.png) no-repeat;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    transition: 1s;
+}
+
+.hideSection>div,
+.hideSection>span,
+.nameSpan,
+.nameDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eachBookStyle>span,
+.hideSection>span {
+    /* color: rgb(29, 100, 231); */
+    font-weight: bold;
+    padding: 5px;
+    display: block;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.submitBtnDiv {
+    display: flex;
+    justify-content: center;
+}
+
 .submitBtn {
-    /* background-color: black; */
+    width: 55%;
     font-size: 2.5rem;
     border-radius: 10px;
     transition: 0.3s;
@@ -181,6 +182,8 @@ h2 {
     justify-content: center;
     margin-top: 10px;
     padding: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    outline: 2px solid rgb(29, 100, 231) !important;
 }
 
 .styleHead {
@@ -198,25 +201,29 @@ h2 {
 
 .readBtn,
 .readBtnDisplay {
-    background-color: rgb(77, 189, 62);
+    background-color: var(--greenColor);
     flex-grow: 1;
     margin: 15px;
-    margin-top: 0px;
+    margin-top: 5px;
     margin-bottom: 10px;
     font-size: 1.5rem;
-    border: 2px solid rgb(247, 247, 247);
+    border: 3px solid rgb(17, 0, 0);
+    outline: 2px solid rgb(255, 255, 255);
     color: var(--darkColor);
     font-weight: bold;
 }
 
-.notReadStatus {
-    background-color: red;
-    transition: 0.5s;
+.defaultColor {
+    background-color: var(--greenColor);
+    border: 3px solid rgb(17, 0, 0);
+    outline: 2px solid rgb(255, 255, 255);
 }
 
-.defaultColor {
-    background-color: rgb(77, 189, 62);
-    border: 3px solid rgb(255, 255, 255);
+.notReadColor {
+    background-color: red;
+    border: 3px solid rgb(17, 0, 0);
+    outline: 2px solid rgb(255, 255, 255);
+    transition: 0.5s;
 }
 
 .iconSection {
@@ -242,58 +249,13 @@ h2 {
     background-color: aliceblue;
 }
 
-form>.readBtnDivDisplay>.readBtnDisplay {
-    /* background-color: rebeccapurple !important; */
-    transform: scale(1.05);
-}
-
-form>.readBtnDivDisplay>.readBtnDisplay:hover {
-    transform: scaleY(1.1)
-}
-
-
-.deleteBtn:hover {
-    cursor: pointer;
-    color: rgb(255, 0, 0);
-    transform: scale(1.05);
-    border-radius: 50%;
-    background-color: var(--darkColor);
-}
-
-.addBookBtn {
-    background-color: white;
-    color: var(--darkColor);
-    border: 1px solid rgb(255, 255, 255);
-    /* transition: 0.3s; */
-    /* transform: scale(1.05); */
-}
-
-.addBookBtn:hover {
-    background-color: var(--darkColor);
-    color: aliceblue;
-    border: 1px solid rgb(255, 255, 255);
-    transition: 0.3s;
-    transform: scale(1.05);
-}
-
-.readBtn,
-.readBtnDisplay:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
 .minimizeIcon {
     background: center/contain url(./img/checkbox.png) no-repeat;
-    background-color: rgb(77, 189, 62);
+    background-color: var(--greenColor);
     width: 10%;
     border-radius: 10px;
     color: white;
     cursor: pointer;
-}
-
-.minimizeIcon:hover {
-    transform: scale(1.05);
-    border-radius: 50%;
 }
 
 .minimizeIconOn {
@@ -305,26 +267,45 @@ form>.readBtnDivDisplay>.readBtnDisplay:hover {
     color: rgb(0, 0, 0); */
 }
 
-.showMoreDivHide {
-    display: none;
-    /* transition: 1s; */
+form>.readBtnDivDisplay>.readBtnDisplay {
+    transform: scale(1.05);
 }
 
-.eachBookStyleHeight {
-    max-height: 155px;
-    /* transition: 10s; */
+form>.readBtnDivDisplay>.readBtnDisplay:hover {
+    transform: scaleY(1.1)
 }
 
-/* .showMoreDiv {
-    background-color: rgba(223, 219, 219, 0.993);
-} */
+.submitBtn:hover {
+    background-color: aliceblue;
+    color: var(--darkColor);
+    width: 100%;
+}
 
-.showMoreIcon {
-    background: center/contain url(./img/down.png) no-repeat;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 30px;
-    transition: 1s;
+.deleteBtn:hover {
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+    transform: scale(1.05);
+    border-radius: 50%;
+    background-color: var(--darkColor);
+}
+
+
+.addBookBtn:hover {
+    background-color: var(--darkColor);
+    border: 3px solid var(--greenColor);
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.readBtn:hover,
+.readBtnDisplay:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.minimizeIcon:hover {
+    transform: scale(1.05);
+    border-radius: 50%;
 }
 
 .showMoreIcon:hover {

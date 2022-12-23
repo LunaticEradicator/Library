@@ -13,22 +13,36 @@ const ratingInput = document.querySelector(".ratingInput");
 const readStatusInput = document.querySelector(".readStatusInput");
 
 
-function Book(name, author, page, rating, readStatus) {
-    this.name = name;
-    this.author = author;
-    this.page = page;
-    this.rating = rating;
-    this.readStatus = readStatus;
+class Book {
+    constructor(name, author, page, rating, readStatus) {
+        this.name = name;
+        this.author = author;
+        this.page = page;
+        this.rating = rating;
+        this.readStatus = readStatus;
+    }
+    // addBook() {
+    //     return `Name : ${this.name} Author : ${this.author} Year : ${this.page} Rating : ${this.rating} ReadStats : ${this.readStatus}`
+    // }
 }
-
-Book.prototype.addBook = function () {
-    return `Name : ${this.name} Author : ${this.author} Year : ${this.page} Rating : ${this.rating} ReadStats : ${this.readStatus}`
-}
-
 // Each Time Submit Button is Pressed a new object will be created using object constructor [submitBtn function is invoked]
 
 
-const bookOne = new Book("The Witcher", "Andrzej Sapkowski", 235, 10, "Read");
+// function Book(name, author, page, rating, readStatus) {
+//     this.name = name;
+//     this.author = author;
+//     this.page = page;
+//     this.rating = rating;
+//     this.readStatus = readStatus;
+// }
+
+// Book.prototype.addBook = function () {
+//     return `Name : ${this.name} Author : ${this.author} Year : ${this.page} Rating : ${this.rating} ReadStats : ${this.readStatus}`
+// }
+
+
+
+const bookOne = new Book("The Witcher", "Andrzej Sapkowski", 235, 10, "Read"); //Pre-Defined Book
 let myLibrary = [];
 myLibrary.push(bookOne);
 displayBookToLibrary()

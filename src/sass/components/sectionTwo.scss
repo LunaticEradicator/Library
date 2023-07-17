@@ -1,0 +1,154 @@
+@use "../utilities/" as ut;
+.display {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-flow: row;
+  border-radius: 50px;
+  margin: 10px;
+  padding: 10px;
+  padding-left: 30px;
+  transition: 1s;
+  @include ut.breakpoint(medium) {
+    margin: 0;
+    padding: 0;
+  }
+}
+.eachBookStyle {
+  margin: 10px;
+  padding-top: 0;
+  border-radius: 10px;
+  transition: 1s;
+  background-color: gainsboro;
+  color: var(--darkColor);
+  font-size: 1.1rem;
+  &Height {
+    max-height: 155px;
+  }
+}
+
+.eachBookStyle > span,
+.hideSection > span {
+  font-weight: bold;
+  padding: 5px;
+  display: block;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.iconSection {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between !important;
+  margin: 0;
+}
+
+.deleteBtn,
+.minimizeIcon {
+  all: unset;
+  padding: 0px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  font-size: 2rem;
+  transition: 0.5s;
+  border-radius: 5px;
+  color: var(--darkColor);
+  text-align: center;
+  margin: 2px;
+  transform: scale(0.8);
+  background-color: aliceblue;
+}
+
+.minimizeIcon {
+  background: center/contain url(../assets/checkbox.png) no-repeat;
+  background-color: var(--greenColor);
+  width: 10%;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  &On {
+    background: center/contain url(../assets/eye.png) no-repeat;
+    background-color: red;
+    transition: 0.5s;
+  }
+}
+
+.hideSection > div,
+.hideSection > span,
+.nameSpan,
+.nameDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.readBtnDiv,
+.readBtnDivDisplay {
+  margin: 0px;
+  margin-top: 5px;
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch !important;
+}
+
+.readBtn,
+.readBtnDisplay {
+  background-color: var(--greenColor);
+  flex-grow: 1;
+  margin: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  border: 3px solid rgb(17, 0, 0);
+  outline: 2px solid rgb(255, 255, 255);
+  color: var(--darkColor);
+  font-weight: bold;
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}
+
+form > .readBtnDivDisplay > .readBtnDisplay {
+  transform: scale(1.05);
+}
+
+form > .readBtnDivDisplay > .readBtnDisplay:hover {
+  transform: scaleY(1.1);
+}
+
+.showMoreDivHide {
+  display: none;
+}
+
+.showMoreIcon {
+  background: center/contain url(../assets/down.png) no-repeat;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 30px;
+  transition: 1s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.notReadColor {
+  background-color: red;
+  border: 3px solid rgb(17, 0, 0);
+  outline: 2px solid rgb(255, 255, 255);
+  transition: 0.5s;
+}
+
+.minimizeIcon:hover {
+  transform: scale(1.05);
+  border-radius: 50%;
+}
+
+.deleteBtn:hover {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  transform: scale(1.05);
+  border-radius: 50%;
+  background-color: var(--darkColor);
+}

@@ -1,0 +1,60 @@
+@use "../utilities/" as ut;
+
+.mainDivModal {
+  display: flex;
+  flex-direction: column;
+  & div > input {
+    display: flex;
+    flex-grow: 1;
+  }
+}
+
+// .mainDivModal > div {
+//   display: flex;
+// }
+
+.submitBtn {
+  flex-grow: 0 !important;
+  width: 55% !important;
+  font-size: 2.5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 5px;
+  border: 2px solid rgb(0, 0, 0);
+  outline: 2px solid rgb(29, 100, 231) !important;
+  transition: 0.3s;
+  @include ut.breakpoint(medium) {
+    font-size: 2rem;
+  }
+  &:hover {
+    background-color: aliceblue !important;
+    color: var(--darkColor) !important;
+    width: 100% !important;
+  }
+  &Div {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.modal::backdrop {
+  background-color: rgb(160, 153, 153);
+  opacity: 0.5;
+  transition: 1s;
+}
+
+.styleHead {
+  text-align: center;
+}
+
+.defaultColor {
+  background-color: var(--greenColor);
+  border: 3px solid rgb(17, 0, 0);
+  outline: 2px solid rgb(255, 255, 255);
+}
+
+.errorMessage {
+  outline: 2px solid red;
+}

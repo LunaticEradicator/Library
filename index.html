@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <!-- <link rel="stylesheet" href="../src/sass/style.css" /> -->
+    <script type="module" src="./src/index.js" defer></script>
+  <script defer src="runtime%206f69795a2af2505cfc6b.js"></script><script defer src="main%207c7ed6bd6abf4818fc2b.js"></script></head>
+
+  <body>
+    <h1>Library</h1>
+    <div class="sectionOne">
+      <div class="addBookDiv">
+        <button class="addBookBtn">Add Book</button>
+      </div>
+    </div>
+
+    <div class="sectionTwo">
+      <div class="display"></div>
+    </div>
+
+    <div class="sectionThree">
+      <dialog class="modal">
+        <h2>Add a New Book</h2>
+        <form method="dialog">
+          <div class="mainDivModal">
+            <div>
+              <input
+                type="text"
+                name="name"
+                class="nameInput"
+                placeholder="Book"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="author"
+                class="authorInput"
+                placeholder="Author"
+                autocomplete="off"
+                pattern="^[a-z A-Z]+$"
+                required
+              />
+            </div>
+            <div>
+              <input
+                type="number"
+                name="page"
+                class="pageInput"
+                placeholder="Pages"
+                autocomplete="off"
+                min="1"
+                max="999"
+                required
+              />
+            </div>
+            <div>
+              <input
+                type="number"
+                name="rating"
+                class="ratingInput"
+                placeholder="Rating"
+                autocomplete="off"
+                min="0"
+                max="10"
+                required
+              />
+            </div>
+            <div class="readBtnDiv">
+              <button class="readBtn readStatusInput">Read</button>
+            </div>
+            <div class="submitBtnDiv">
+              <input
+                type="submit"
+                name="submit"
+                class="submitBtn"
+                placeholder="Submit"
+              />
+            </div>
+          </div>
+        </form>
+      </dialog>
+    </div>
+  </body>
+</html>
